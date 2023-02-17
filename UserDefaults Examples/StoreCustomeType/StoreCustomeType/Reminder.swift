@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Note: Codable, Storeable {
+struct Reminder: Codable, Storeable {
     
     let id: Int
     let title: String
@@ -28,7 +28,7 @@ struct Note: Codable, Storeable {
     init?(storeData: Data?) {
         guard let storeData = storeData else { return nil}
         let decoder = JSONDecoder()
-        guard let decoded = try? decoder.decode(Note.self, from: storeData) else { return nil }
+        guard let decoded = try? decoder.decode(Reminder.self, from: storeData) else { return nil }
         self = decoded
      
     }

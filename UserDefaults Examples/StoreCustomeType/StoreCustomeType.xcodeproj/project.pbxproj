@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		CEA0EDC1299E746B00BBBC36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDC0299E746B00BBBC36 /* AppDelegate.swift */; };
 		CEA0EDC3299E746B00BBBC36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDC2299E746B00BBBC36 /* SceneDelegate.swift */; };
-		CEA0EDC5299E746B00BBBC36 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDC4299E746B00BBBC36 /* NoteListViewController.swift */; };
+		CEA0EDC5299E746B00BBBC36 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDC4299E746B00BBBC36 /* ReminderViewController.swift */; };
 		CEA0EDC8299E746B00BBBC36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA0EDC6299E746B00BBBC36 /* Main.storyboard */; };
 		CEA0EDCA299E746D00BBBC36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA0EDC9299E746D00BBBC36 /* Assets.xcassets */; };
 		CEA0EDCD299E746D00BBBC36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA0EDCB299E746D00BBBC36 /* LaunchScreen.storyboard */; };
-		CEA0EDD5299E74BD00BBBC36 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDD4299E74BD00BBBC36 /* Note.swift */; };
+		CEA0EDD5299E74BD00BBBC36 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDD4299E74BD00BBBC36 /* Reminder.swift */; };
 		CEA0EDD7299E79CD00BBBC36 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDD6299E79CD00BBBC36 /* LocalStorage.swift */; };
 		CEA0EDD9299E7A7E00BBBC36 /* LocalStoragManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDD8299E7A7E00BBBC36 /* LocalStoragManager.swift */; };
 		CEA0EDDB299E8F4300BBBC36 /* CustomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0EDDA299E8F4300BBBC36 /* CustomeViewModel.swift */; };
@@ -23,12 +23,12 @@
 		CEA0EDBD299E746B00BBBC36 /* StoreCustomeType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreCustomeType.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA0EDC0299E746B00BBBC36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA0EDC2299E746B00BBBC36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEA0EDC4299E746B00BBBC36 /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
+		CEA0EDC4299E746B00BBBC36 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		CEA0EDC7299E746B00BBBC36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEA0EDC9299E746D00BBBC36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEA0EDCC299E746D00BBBC36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEA0EDCE299E746D00BBBC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEA0EDD4299E74BD00BBBC36 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		CEA0EDD4299E74BD00BBBC36 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		CEA0EDD6299E79CD00BBBC36 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		CEA0EDD8299E7A7E00BBBC36 /* LocalStoragManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoragManager.swift; sourceTree = "<group>"; };
 		CEA0EDDA299E8F4300BBBC36 /* CustomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeViewModel.swift; sourceTree = "<group>"; };
@@ -66,10 +66,10 @@
 			children = (
 				CEA0EDC0299E746B00BBBC36 /* AppDelegate.swift */,
 				CEA0EDC2299E746B00BBBC36 /* SceneDelegate.swift */,
-				CEA0EDC4299E746B00BBBC36 /* NoteListViewController.swift */,
+				CEA0EDC4299E746B00BBBC36 /* ReminderViewController.swift */,
 				CEA0EDD6299E79CD00BBBC36 /* LocalStorage.swift */,
 				CEA0EDD8299E7A7E00BBBC36 /* LocalStoragManager.swift */,
-				CEA0EDD4299E74BD00BBBC36 /* Note.swift */,
+				CEA0EDD4299E74BD00BBBC36 /* Reminder.swift */,
 				CEA0EDDA299E8F4300BBBC36 /* CustomeViewModel.swift */,
 				CEA0EDC6299E746B00BBBC36 /* Main.storyboard */,
 				CEA0EDC9299E746D00BBBC36 /* Assets.xcassets */,
@@ -150,13 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA0EDC5299E746B00BBBC36 /* NoteListViewController.swift in Sources */,
+				CEA0EDC5299E746B00BBBC36 /* ReminderViewController.swift in Sources */,
 				CEA0EDD9299E7A7E00BBBC36 /* LocalStoragManager.swift in Sources */,
 				CEA0EDC1299E746B00BBBC36 /* AppDelegate.swift in Sources */,
 				CEA0EDD7299E79CD00BBBC36 /* LocalStorage.swift in Sources */,
 				CEA0EDDB299E8F4300BBBC36 /* CustomeViewModel.swift in Sources */,
 				CEA0EDC3299E746B00BBBC36 /* SceneDelegate.swift in Sources */,
-				CEA0EDD5299E74BD00BBBC36 /* Note.swift in Sources */,
+				CEA0EDD5299E74BD00BBBC36 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,20 +7,42 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notes-->
+        <!--Last Reminder-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NoteListViewController" customModule="StoreCustomeType" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ReminderViewController" customModule="StoreCustomeType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="zgN-kK-SOd">
+                                <rect key="frame" x="5" y="364" width="383" height="124"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNG-S8-be4">
+                                        <rect key="frame" x="153.33333333333334" y="0.0" width="76.666666666666657" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJh-tv-OAO">
+                                        <rect key="frame" x="166.66666666666666" y="100" width="50" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.082232209289965982" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.082174278795719147" green="0.082174278795719147" blue="0.082174278795719147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zgN-kK-SOd" secondAttribute="trailing" constant="5" id="0XU-74-erB"/>
+                            <constraint firstItem="zgN-kK-SOd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GeS-ZJ-u9R"/>
+                            <constraint firstItem="zgN-kK-SOd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gKA-sy-fuM"/>
+                            <constraint firstItem="zgN-kK-SOd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="lhZ-2U-hJp"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="f7r-Sk-fBD">
-                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="4dd-OC-bod">
-                            <color key="tintColor" red="0.35087478160858154" green="0.087351657450199127" blue="0.53156107664108276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Last Reminder" id="f7r-Sk-fBD">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="n9P-1E-w0I">
                             <color key="tintColor" red="0.35087478160858154" green="0.087351657450199127" blue="0.53156107664108276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -28,6 +50,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="noteBody" destination="SJh-tv-OAO" id="KLt-Ou-tbp"/>
+                        <outlet property="noteTitle" destination="iNG-S8-be4" id="b3o-eO-aCW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,8 +64,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZI5-rV-dyV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hO9-DC-pTQ">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="hO9-DC-pTQ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -56,7 +82,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

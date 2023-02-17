@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol NoteHandler: AnyObject {
-    func createNote(with title: String, and body: String)
+protocol ReminderHandler: AnyObject {
+    func saveReminder(with title: String, and body: String)
 }
 
 class CustomModalViewController: UIViewController {
     
-    var delegate: NoteHandler? = nil
+    var delegate: ReminderHandler? = nil
 
     lazy var noteTitleTF: UITextField = {
         let tf = UITextField()
@@ -61,7 +61,7 @@ class CustomModalViewController: UIViewController {
     
     lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = #colorLiteral(red: 0.08223219961, green: 0.08223219961, blue: 0.08223219961, alpha: 1)
         view.layer.cornerRadius = 16
         view.clipsToBounds = true
         return view
@@ -103,7 +103,7 @@ class CustomModalViewController: UIViewController {
             return
         }
         // need to call aprotocal func send data back
-        delegate?.createNote(with: title, and: body)
+        delegate?.saveReminder(with: title, and: body)
         animateDismissView()
     }
     
