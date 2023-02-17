@@ -9,7 +9,6 @@ import Foundation
 
 struct Reminder: Codable, Storeable {
     
-    let id: Int
     let title: String
     let body: String
     
@@ -19,8 +18,7 @@ struct Reminder: Codable, Storeable {
         return encoded
     }
     
-    init(id: Int, title: String, body: String) {
-        self.id = id
+    init(title: String, body: String) {
         self.title = title
         self.body = body
     }

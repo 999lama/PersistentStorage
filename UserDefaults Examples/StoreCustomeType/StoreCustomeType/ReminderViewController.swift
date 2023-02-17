@@ -37,6 +37,7 @@ class ReminderViewController: UIViewController {
     
     
     func saveReminderHandler(reminder: Reminder) {
+        storage.remove(key: LocalStorageKeys.reminder)
         storage.writeStoreable(key: LocalStorageKeys.reminder, value: reminder)
     }
     
@@ -55,7 +56,7 @@ class ReminderViewController: UIViewController {
 
 extension ReminderViewController: ReminderHandler {
     func saveReminder(with title: String, and body: String) {
-        self.saveReminderHandler(reminder: Reminder(id: 1, title: title, body: body))
+        self.saveReminderHandler(reminder: Reminder(title: title, body: body))
         self.configureUI()
     }
     
