@@ -8,27 +8,22 @@
 import Foundation
 
 enum LocalStorageKeys: String, LocalStorageKeysProtocol {
-    case note
+    case reminder
 }
 
 class LocalStorage: LocalStorageProtocol {
     
     fileprivate let userDefaults: UserDefaults = UserDefaults.standard
     
-    
-    
-    
     func value<T>(key: LocalStorageKeysProtocol) -> T? {
         return self.userDefaults.object(forKey: key.rawValue) as? T
     }
     
     func write<T>(key: LocalStorageKeysProtocol, value: T?) {
-        self.userDefaults.synchronize()
         self.userDefaults.set(value, forKey: key.rawValue)
     }
     
     func remove(key: LocalStorageKeysProtocol) {
-        self.userDefaults.synchronize()
         self.userDefaults.set(nil, forKey: key.rawValue)
     }
     
@@ -38,7 +33,6 @@ class LocalStorage: LocalStorageProtocol {
      }
      
      func writeStoreable<T>(key: LocalStorageKeysProtocol, value: T?) where T: Storeable {
-         self.userDefaults.synchronize()
          self.userDefaults.set(value?.storeData, forKey: key.rawValue)
      }
     
