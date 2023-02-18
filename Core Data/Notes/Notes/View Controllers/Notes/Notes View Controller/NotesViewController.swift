@@ -213,7 +213,10 @@ extension NotesViewController: NSFetchedResultsControllerDelegate {
                 self.configure(cell, at: indexPath)
             }
         case .move:
+            /*When a managed object is modified, it can impact the sort order of the managed objects. This isn't easy to implement from scratch. Fortunately, the fetched results controller takes care of this as well through the move type.*/
             // in case of move we will delete the excusting indexPath, and we will insert in the newIndexpath
+            //indexPath parameter represents the original position of the managed object
+            //newIndexPath parameter represents the new position of the managed object. 
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
