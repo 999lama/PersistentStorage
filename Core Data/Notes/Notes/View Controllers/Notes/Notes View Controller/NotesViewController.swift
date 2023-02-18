@@ -30,6 +30,7 @@ class NotesViewController: UIViewController {
     private enum Segue {
         
         static let AddNote = "AddNote"
+        static let Note = "Note"
         
     }
     
@@ -55,9 +56,10 @@ class NotesViewController: UIViewController {
         title = "Notes"
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "")
         
-
+        
         setupView()
         fetchNotes()
+        setupNotificationHandling()
     }
     
     // MARK: - Navigation
@@ -66,6 +68,15 @@ class NotesViewController: UIViewController {
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
+        case Segue.Note:
+            guard let destination = segue.destination as? NoteViewController else {
+                return
+            }
+            guard let indexPath = tableView.indexPathForSelectedRow, let note = notes?[indexPath.row] else {
+                return
+            }
+            destination.note = note
+            
         case Segue.AddNote:
             guard let destination = segue.destination as? AddNoteViewController else {
                 return
@@ -123,13 +134,72 @@ class NotesViewController: UIViewController {
         messageLabel.text = "You don't have any notes yet."
     }
     
-    // MARK: -
+    
     
     private func setupTableView() {
         tableView.isHidden = true
         tableView.estimatedRowHeight = estimatedRowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
     }
+    
+    // MARK: -  setupNotificationHandling()
+    private func setupNotificationHandling() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(managedObjectContextObjectsDidChange(_:)),
+                                       name: Notification.Name.NSManagedObjectContextObjectsDidChange,
+                                       object: coreDataManager.managedObjectContext)
+    }
+    
+    // MARK: - Notification Handling
+    
+    @objc private func managedObjectContextObjectsDidChange(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        // Helpers
+        var notesDidChange = false
+        ////  we will loop for the instance if NSManagedObject
+        if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject> {
+            for insert in inserts {
+                if let note = insert as? Note {
+                    notes?.append(note)
+                    notesDidChange = true
+                }
+            }
+        }
+        
+        if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject> {
+            for update in updates {
+                if let _ = update as? Note {
+                    notesDidChange = true
+                }
+            }
+        }
+        
+        if let deletes = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject> {
+            for delete in deletes {
+                if let note = delete as? Note {
+                    if let index = notes?.index(of: note) {
+                        notes?.remove(at: index)
+                        notesDidChange = true
+                    }
+                }
+            }
+            
+        }
+        
+        if notesDidChange {
+            // Sort Notes
+            notes?.sort(by: { $0.updatedAtAsDate > $1.updatedAtAsDate })
+            
+            // Update Table View
+            tableView.reloadData()
+            
+            // Update View
+            updateView()
+        }
+        
+    }
+    
     
 }
 
