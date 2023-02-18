@@ -39,13 +39,16 @@ class NotesViewController: UIViewController {
     private var coreDataManager = CoreDataManager(modelName: "Notes")
     private let estimatedRowHeight = CGFloat(44.0)
     
+    
+    /// [1] create  fetchResultController
     private lazy var fetchResultController: NSFetchedResultsController<Note> = {
         let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        /// [2] add sortDescriptors to  fetchResultController
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Note.updatedAt), ascending: false)]
-        
+        /// [3] we add the context that note associate with
         let fetechResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.coreDataManager.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        /// [4] confirm it to the delegate
         fetechResultController.delegate = self
-        
         return fetechResultController
     }()
     
@@ -61,9 +64,9 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         title = "Notes"
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "")
-        setupView()
-        fetchNotes()
-        updateView()
+        setupView() // set the empty view first
+        fetchNotes() // fetch the notes using fetchResultController
+        updateView() // update the view to remove empty if we have a notes
     }
     
     // MARK: - Navigation
@@ -79,6 +82,7 @@ class NotesViewController: UIViewController {
             guard let indexPath = tableView.indexPathForSelectedRow else {
                 return
             }
+            // fetch the object using fetchResultController at indexPath
             let note = fetchResultController.object(at: indexPath)
             destination.note = note
             
@@ -86,7 +90,7 @@ class NotesViewController: UIViewController {
             guard let destination = segue.destination as? AddNoteViewController else {
                 return
             }
-            
+        
             // Configure Destination
             destination.managedObjectContext = coreDataManager.managedObjectContext
         default:
@@ -131,11 +135,13 @@ class NotesViewController: UIViewController {
 extension NotesViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // fetch the number of section using fetchResultController
         guard let section = fetchResultController.sections else {return 0}
         return section.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // fetch the number of rows using fetchResultController
         guard let section = fetchResultController.sections?[section] else {
             return 0
         }
@@ -154,6 +160,7 @@ extension NotesViewController: UITableViewDataSource {
     
     
     private func configure(_ cell: NoteTableViewCell, at indexPath: IndexPath) {
+        // fetch the note object using fetchResultController at indexPath
         let note = fetchResultController.object(at: indexPath)
         cell.titleLabel.text = note.title
         cell.contentsLabel.text = note.contents
@@ -164,6 +171,7 @@ extension NotesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         guard  editingStyle == .delete else {return}
+        // fetch the note object using fetchResultController at indexPath
         let note = fetchResultController.object(at: indexPath)
         coreDataManager.managedObjectContext.delete(note)
     }
@@ -175,33 +183,37 @@ extension NotesViewController: UITableViewDataSource {
 extension NotesViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        // we start the batch for table view
         tableView.beginUpdates()
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        // we end the batch update for table view
         tableView.endUpdates()
-        updateView()
+        updateView() // we call this func in case if empty result
     }
     
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
-        
-        
         switch type {
         case .insert:
+            // in case of insert we will insert to the last excusting indexPath
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
         case .delete:
+            // in case of delete we will delete to the last excusting indexPath
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         case .update:
+            // in case of update we will update from the last excusting indexPath - upper first
             if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? NoteTableViewCell {
                 self.configure(cell, at: indexPath)
             }
         case .move:
+            // in case of move we will delete the excusting indexPath, and we will insert in the newIndexpath
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
