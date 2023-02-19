@@ -26,6 +26,7 @@ class CategoryViewController: UIViewController {
         title = "Edit Category"
 
         setupView()
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
