@@ -16,6 +16,7 @@
 		CE587F4629A3CC100005391C /* Noty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE587F4429A3CC100005391C /* Noty.xcdatamodeld */; };
 		CE587F4829A3CD010005391C /* CoreDanaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F4729A3CD010005391C /* CoreDanaManager.swift */; };
 		CE587F4A29A3CFFB0005391C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F4929A3CFFB0005391C /* Constant.swift */; };
+		CE587F6E29A431A80005391C /* StoryBoardInstaniate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F6D29A431A80005391C /* StoryBoardInstaniate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CE587F4529A3CC100005391C /* Noty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Noty.xcdatamodel; sourceTree = "<group>"; };
 		CE587F4729A3CD010005391C /* CoreDanaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDanaManager.swift; sourceTree = "<group>"; };
 		CE587F4929A3CFFB0005391C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		CE587F6D29A431A80005391C /* StoryBoardInstaniate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstaniate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		CE587F3F29A3C6550005391C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				CE587F6D29A431A80005391C /* StoryBoardInstaniate.swift */,
 				CE587F2F29A3C6180005391C /* Notes.storyboard */,
 				CE587F3429A3C6190005391C /* LaunchScreen.storyboard */,
 			);
@@ -198,6 +201,7 @@
 				CE587F2E29A3C6180005391C /* ViewController.swift in Sources */,
 				CE587F2A29A3C6180005391C /* AppDelegate.swift in Sources */,
 				CE587F4829A3CD010005391C /* CoreDanaManager.swift in Sources */,
+				CE587F6E29A431A80005391C /* StoryBoardInstaniate.swift in Sources */,
 				CE587F2C29A3C6180005391C /* SceneDelegate.swift in Sources */,
 				CE587F4629A3CC100005391C /* Noty.xcdatamodeld in Sources */,
 				CE587F4A29A3CFFB0005391C /* Constant.swift in Sources */,

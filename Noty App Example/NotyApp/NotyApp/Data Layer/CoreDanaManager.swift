@@ -7,23 +7,26 @@
 
 import CoreData
 
-protocol coreDataStack: AnyObject {
-    var modelName: String {get} /*what ever the .xcdatamodel name */
+protocol CoreDataStack: AnyObject {
+    var modelName: String {get} /*whatever your data model name */
     var managedObjectContext: NSManagedObjectContext {get}
     var managedObjectModel: NSManagedObjectModel {get}
     var persistentStoreCoordinator: NSPersistentStoreCoordinator {get}
 }
 
-final class CoreDataManager: coreDataStack {
+extension CoreDataStack {
+    var modelName: String {
+        .modelName
+    }
+}
+
+final class CoreDataManager: CoreDataStack {
+    
+    static let shared = CoreDataManager()
+    
+    private init() {}
     
     // MARK: - Properties
-    private(set) var modelName: String
-    
-   
-    init(modelName: String) {
-        self.modelName = modelName
-    }
-    
     private(set) lazy var managedObjectContext: NSManagedObjectContext = {
         // Initialize Managed Object Context
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)

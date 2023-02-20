@@ -9,12 +9,11 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
-    private var coreDataManager = CoreDataManager(modelName: .modelName)
     
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        print(coreDataManager.managedObjectContext)
+        print(CoreDataManager.shared.managedObjectContext)
     }
 
 
