@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
-
+    private var coreDataManager = CoreDataManager(modelName: .modelName)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+      
+        print(coreDataManager.managedObjectContext)
     }
 
 
