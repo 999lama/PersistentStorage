@@ -219,6 +219,7 @@ extension CategoriesViewController: UITableViewDataSource {
         // Configure Cell
         cell.nameLabel.text = category.name
         
+        // set the selected category color
         if note?.category == category {
             cell.nameLabel.textColor = .bitterSweet
         } else {
@@ -245,6 +246,11 @@ extension CategoriesViewController: UITableViewDelegate {
         
         let category = fetchedResultsController.object(at: indexPath)
         note?.category = category
+        do {
+           try note?.managedObjectContext?.save()
+        } catch {
+            print(error.localizedDescription)
+        }
         // automatically funcs added from xcode in class defnation
         // we only add one said of the relationship - the other said will update by itself
 //        category.addToNotes(<#T##value: Note##Note#>)

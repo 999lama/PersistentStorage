@@ -76,7 +76,7 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Notes"
-
+        UIDevice.printFolderPath()
         setupView()
         fetchNotes()
         updateView()
@@ -107,7 +107,7 @@ class NotesViewController: UIViewController {
             // Fetch Note
             let note = fetchedResultsController.object(at: indexPath)
 
-            // Configure Destination
+            // Configure Destination - set the note 
             destination.note = note
         default:
             break

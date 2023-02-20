@@ -15,7 +15,6 @@ class CategoryViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField!
 
     // MARK: -
-
     var category: Category?
 
     // MARK: - View Life Cycle

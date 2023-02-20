@@ -61,7 +61,7 @@ class NoteViewController: UIViewController {
         }
     }
     
-    
+    // to update the category
     private func setupNotificationHandling() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
