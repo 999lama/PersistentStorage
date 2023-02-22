@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE587F2A29A3C6180005391C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F2929A3C6180005391C /* AppDelegate.swift */; };
 		CE587F2C29A3C6180005391C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F2B29A3C6180005391C /* SceneDelegate.swift */; };
-		CE587F2E29A3C6180005391C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F2D29A3C6180005391C /* ViewController.swift */; };
+		CE587F2E29A3C6180005391C /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F2D29A3C6180005391C /* NotesListViewController.swift */; };
 		CE587F3129A3C6180005391C /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE587F2F29A3C6180005391C /* Notes.storyboard */; };
 		CE587F3329A3C6190005391C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE587F3229A3C6190005391C /* Assets.xcassets */; };
 		CE587F3629A3C6190005391C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE587F3429A3C6190005391C /* LaunchScreen.storyboard */; };
@@ -17,13 +17,17 @@
 		CE587F4829A3CD010005391C /* CoreDanaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F4729A3CD010005391C /* CoreDanaManager.swift */; };
 		CE587F4A29A3CFFB0005391C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F4929A3CFFB0005391C /* Constant.swift */; };
 		CE587F6E29A431A80005391C /* StoryBoardInstaniate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F6D29A431A80005391C /* StoryBoardInstaniate.swift */; };
+		CE587F7229A437EE0005391C /* ManagedContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE587F7129A437EE0005391C /* ManagedContext+Extension.swift */; };
+		CED1150A29A631E4004548A8 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1150829A631E4004548A8 /* NoteCell.swift */; };
+		CED1150B29A631E4004548A8 /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED1150929A631E4004548A8 /* NoteCell.xib */; };
+		CED1150D29A64FB9004548A8 /* UIcolor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE587F2629A3C6180005391C /* NotyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE587F2929A3C6180005391C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE587F2B29A3C6180005391C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE587F2D29A3C6180005391C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE587F2D29A3C6180005391C /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
 		CE587F3029A3C6180005391C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notes.storyboard; sourceTree = "<group>"; };
 		CE587F3229A3C6190005391C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE587F3529A3C6190005391C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +36,10 @@
 		CE587F4729A3CD010005391C /* CoreDanaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDanaManager.swift; sourceTree = "<group>"; };
 		CE587F4929A3CFFB0005391C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		CE587F6D29A431A80005391C /* StoryBoardInstaniate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstaniate.swift; sourceTree = "<group>"; };
+		CE587F7129A437EE0005391C /* ManagedContext+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedContext+Extension.swift"; sourceTree = "<group>"; };
+		CED1150829A631E4004548A8 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		CED1150929A631E4004548A8 /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
+		CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +94,8 @@
 		CE587F3E29A3C6460005391C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE587F2D29A3C6180005391C /* ViewController.swift */,
+				CED1150729A631B9004548A8 /* Views */,
+				CE587F2D29A3C6180005391C /* NotesListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -114,6 +123,7 @@
 			children = (
 				CE587F3729A3C6190005391C /* Info.plist */,
 				CE587F4929A3CFFB0005391C /* Constant.swift */,
+				CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,9 +132,19 @@
 			isa = PBXGroup;
 			children = (
 				CE587F4729A3CD010005391C /* CoreDanaManager.swift */,
+				CE587F7129A437EE0005391C /* ManagedContext+Extension.swift */,
 				CE587F4429A3CC100005391C /* Noty.xcdatamodeld */,
 			);
 			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		CED1150729A631B9004548A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CED1150829A631E4004548A8 /* NoteCell.swift */,
+				CED1150929A631E4004548A8 /* NoteCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +208,7 @@
 				CE587F3629A3C6190005391C /* LaunchScreen.storyboard in Resources */,
 				CE587F3329A3C6190005391C /* Assets.xcassets in Resources */,
 				CE587F3129A3C6180005391C /* Notes.storyboard in Resources */,
+				CED1150B29A631E4004548A8 /* NoteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,13 +219,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE587F2E29A3C6180005391C /* ViewController.swift in Sources */,
+				CE587F2E29A3C6180005391C /* NotesListViewController.swift in Sources */,
 				CE587F2A29A3C6180005391C /* AppDelegate.swift in Sources */,
 				CE587F4829A3CD010005391C /* CoreDanaManager.swift in Sources */,
+				CE587F7229A437EE0005391C /* ManagedContext+Extension.swift in Sources */,
 				CE587F6E29A431A80005391C /* StoryBoardInstaniate.swift in Sources */,
 				CE587F2C29A3C6180005391C /* SceneDelegate.swift in Sources */,
+				CED1150A29A631E4004548A8 /* NoteCell.swift in Sources */,
 				CE587F4629A3CC100005391C /* Noty.xcdatamodeld in Sources */,
 				CE587F4A29A3CFFB0005391C /* Constant.swift in Sources */,
+				CED1150D29A64FB9004548A8 /* UIcolor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

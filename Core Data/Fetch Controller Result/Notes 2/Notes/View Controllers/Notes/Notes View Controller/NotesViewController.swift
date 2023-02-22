@@ -76,6 +76,7 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Notes"
+      
         UIDevice.printFolderPath()
         setupView()
         fetchNotes()
