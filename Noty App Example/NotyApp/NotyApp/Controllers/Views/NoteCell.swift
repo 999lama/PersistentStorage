@@ -11,8 +11,6 @@ class NoteCell: UITableViewCell {
     
     //MARK: - Properties
     static let identifier = String(describing: NoteCell.self)
-
-
     
     //MARK: - Properties
     @IBOutlet weak var titlelabel: UILabel!

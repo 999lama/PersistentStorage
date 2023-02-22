@@ -15,7 +15,7 @@ extension NSManagedObjectContext {
     
     func saveHandler() {
         do {
-            try CoreDataManager.shared.managedObjectContext
+            try CoreDataManager.shared.managedObjectContext.save()
         } catch {
             print(error.localizedDescription)
         }

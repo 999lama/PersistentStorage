@@ -21,6 +21,7 @@
 		CED1150A29A631E4004548A8 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1150829A631E4004548A8 /* NoteCell.swift */; };
 		CED1150B29A631E4004548A8 /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED1150929A631E4004548A8 /* NoteCell.xib */; };
 		CED1150D29A64FB9004548A8 /* UIcolor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */; };
+		CED1150F29A6574C004548A8 /* UIDecive+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1150E29A6574C004548A8 /* UIDecive+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CED1150829A631E4004548A8 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		CED1150929A631E4004548A8 /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+Extension.swift"; sourceTree = "<group>"; };
+		CED1150E29A6574C004548A8 /* UIDecive+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDecive+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				CE587F3729A3C6190005391C /* Info.plist */,
 				CE587F4929A3CFFB0005391C /* Constant.swift */,
+				CED1150E29A6574C004548A8 /* UIDecive+Extension.swift */,
 				CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */,
 			);
 			path = "Supporting Files";
@@ -222,6 +225,7 @@
 				CE587F2E29A3C6180005391C /* NotesListViewController.swift in Sources */,
 				CE587F2A29A3C6180005391C /* AppDelegate.swift in Sources */,
 				CE587F4829A3CD010005391C /* CoreDanaManager.swift in Sources */,
+				CED1150F29A6574C004548A8 /* UIDecive+Extension.swift in Sources */,
 				CE587F7229A437EE0005391C /* ManagedContext+Extension.swift in Sources */,
 				CE587F6E29A431A80005391C /* StoryBoardInstaniate.swift in Sources */,
 				CE587F2C29A3C6180005391C /* SceneDelegate.swift in Sources */,
