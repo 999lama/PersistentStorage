@@ -171,6 +171,8 @@ extension NotesListViewController: NSFetchedResultsControllerDelegate {
             if let newIndexPath = newIndexPath {
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
+        @unknown default:
+            fatalError("unkown action")
         }
     }
     
