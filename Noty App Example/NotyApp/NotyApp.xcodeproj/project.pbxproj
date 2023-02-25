@@ -22,6 +22,7 @@
 		CED1150B29A631E4004548A8 /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED1150929A631E4004548A8 /* NoteCell.xib */; };
 		CED1150D29A64FB9004548A8 /* UIcolor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */; };
 		CED1150F29A6574C004548A8 /* UIDecive+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1150E29A6574C004548A8 /* UIDecive+Extension.swift */; };
+		CED1151129A6A866004548A8 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1151029A6A866004548A8 /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		CED1150929A631E4004548A8 /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		CED1150C29A64FB9004548A8 /* UIcolor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+Extension.swift"; sourceTree = "<group>"; };
 		CED1150E29A6574C004548A8 /* UIDecive+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDecive+Extension.swift"; sourceTree = "<group>"; };
+		CED1151029A6A866004548A8 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				CED1150729A631B9004548A8 /* Views */,
 				CE587F2D29A3C6180005391C /* NotesListViewController.swift */,
+				CED1151029A6A866004548A8 /* AddNoteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				CE587F6E29A431A80005391C /* StoryBoardInstaniate.swift in Sources */,
 				CE587F2C29A3C6180005391C /* SceneDelegate.swift in Sources */,
 				CED1150A29A631E4004548A8 /* NoteCell.swift in Sources */,
+				CED1151129A6A866004548A8 /* AddNoteViewController.swift in Sources */,
 				CE587F4629A3CC100005391C /* Noty.xcdatamodeld in Sources */,
 				CE587F4A29A3CFFB0005391C /* Constant.swift in Sources */,
 				CED1150D29A64FB9004548A8 /* UIcolor+Extension.swift in Sources */,

@@ -30,7 +30,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zLK-JT-GRx" secondAttribute="trailing" id="PcP-gh-dLY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="ZCV-yb-kpP"/>
+                    <navigationItem key="navigationItem" title="Notes" id="ZCV-yb-kpP">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="gxd-K7-DUm">
+                            <color key="tintColor" red="0.56572854518890381" green="0.076825924217700958" blue="0.81168347597122192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addDidTap:" destination="BYZ-38-t0r" id="grZ-s3-Qui"/>
+                                <segue destination="8xF-9e-3Lx" kind="show" identifier="addNote" id="RNl-pe-zON"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="zLK-JT-GRx" id="ePA-YU-HWJ"/>
                     </connections>
@@ -38,6 +46,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064.885496183206" y="-2.1126760563380285"/>
+        </scene>
+        <!--Add Note View Controller-->
+        <scene sceneID="PDK-qh-DOP">
+            <objects>
+                <viewController id="8xF-9e-3Lx" customClass="AddNoteViewController" customModule="NotyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Lr-WF-abn">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYR-vY-Huy">
+                                <rect key="frame" x="65" y="185" width="318" height="50"/>
+                                <color key="tintColor" red="0.35087478160858154" green="0.087351657450199127" blue="0.53156107664108276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ENR-9K-9KX">
+                                <rect key="frame" x="10" y="250" width="373" height="176"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" red="0.35087478160858154" green="0.087351657450199127" blue="0.53156107664108276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enS-O2-eCm">
+                                <rect key="frame" x="10" y="185" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="enS-O2-eCm" secondAttribute="height" multiplier="1:1" id="Dvp-8x-mXh"/>
+                                    <constraint firstAttribute="height" constant="50" id="HRK-Br-Tru"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="didTapPickColor:" destination="8xF-9e-3Lx" eventType="touchUpInside" id="baH-Ad-2sf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t52-zu-hlF">
+                                <rect key="frame" x="20" y="446" width="353" height="45"/>
+                                <color key="backgroundColor" red="0.35087478160858154" green="0.087351657450199127" blue="0.53156107664108276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="nY8-wB-3NO"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Note" subtitle="" titleAlignment="automatic">
+                                    <color key="baseForegroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didClickAdd:" destination="8xF-9e-3Lx" eventType="touchUpInside" id="MEQ-ls-sdV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ueS-gR-UWT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ENR-9K-9KX" firstAttribute="trailing" secondItem="rYR-vY-Huy" secondAttribute="trailing" id="3Sl-1O-Yxf"/>
+                            <constraint firstItem="t52-zu-hlF" firstAttribute="leading" secondItem="ueS-gR-UWT" secondAttribute="leading" constant="20" id="Dcy-v3-zOj"/>
+                            <constraint firstItem="t52-zu-hlF" firstAttribute="top" secondItem="ENR-9K-9KX" secondAttribute="bottom" constant="20" id="E5c-Tg-SDj"/>
+                            <constraint firstItem="ENR-9K-9KX" firstAttribute="leading" secondItem="ueS-gR-UWT" secondAttribute="leading" constant="10" id="GLs-AI-xZT"/>
+                            <constraint firstItem="ueS-gR-UWT" firstAttribute="trailing" secondItem="rYR-vY-Huy" secondAttribute="trailing" constant="10" id="JWw-41-0zG"/>
+                            <constraint firstItem="t52-zu-hlF" firstAttribute="centerY" secondItem="9Lr-WF-abn" secondAttribute="centerY" multiplier="1.1" id="K8C-1t-ZZI"/>
+                            <constraint firstItem="enS-O2-eCm" firstAttribute="top" secondItem="ueS-gR-UWT" secondAttribute="top" constant="30" id="MOc-fU-B77"/>
+                            <constraint firstItem="enS-O2-eCm" firstAttribute="leading" secondItem="ueS-gR-UWT" secondAttribute="leading" constant="10" id="QWL-j3-Lwx"/>
+                            <constraint firstItem="rYR-vY-Huy" firstAttribute="leading" secondItem="enS-O2-eCm" secondAttribute="trailing" constant="5" id="Zme-Wr-hFp"/>
+                            <constraint firstItem="rYR-vY-Huy" firstAttribute="top" secondItem="ueS-gR-UWT" secondAttribute="top" constant="30" id="j72-mT-gp0"/>
+                            <constraint firstItem="ueS-gR-UWT" firstAttribute="trailing" secondItem="t52-zu-hlF" secondAttribute="trailing" constant="20" id="naD-0o-oAB"/>
+                            <constraint firstItem="ENR-9K-9KX" firstAttribute="top" secondItem="rYR-vY-Huy" secondAttribute="bottom" constant="15" id="xNM-Ya-hOA"/>
+                            <constraint firstItem="rYR-vY-Huy" firstAttribute="centerY" secondItem="enS-O2-eCm" secondAttribute="centerY" id="xy4-Uh-yaW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="93K-Jb-ZvU"/>
+                    <connections>
+                        <outlet property="addNoteBtn" destination="t52-zu-hlF" id="VWm-pb-yIn"/>
+                        <outlet property="bodyTextView" destination="ENR-9K-9KX" id="mRB-Aq-etR"/>
+                        <outlet property="colorButton" destination="enS-O2-eCm" id="xfm-IR-c7s"/>
+                        <outlet property="titleTF" destination="rYR-vY-Huy" id="yVw-wl-U2q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="arE-yb-cDK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916.7938931297708" y="-21.126760563380284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIL-a9-6lr">
@@ -59,8 +148,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

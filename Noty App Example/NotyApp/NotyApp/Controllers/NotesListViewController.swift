@@ -10,8 +10,10 @@ import CoreData
 
 class NotesListViewController: UIViewController {
     
+    //MARK: - Properties
     var notes: [Note]?
     
+    //MARK: -  @IBOutlet
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             self.tableView.delegate = self
@@ -20,17 +22,12 @@ class NotesListViewController: UIViewController {
             self.tableView.register(UINib(nibName: NoteCell.identifier, bundle: nil), forCellReuseIdentifier: NoteCell.identifier)
         }
     }
+    
+    //MARK: - Life Cycle methods
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()    
         self.fetchchNotes()
         UIDevice.printFolderPath()
-        let note = Note(context: CoreDataManager.shared.managedObjectContext)
-        note.title = "My first Note"
-        note.updatedAt = Date()
-        note.createdAt = Date()
-        note.body = ""
-        
-        CoreDataManager.shared.managedObjectContext.saveHandler()
         
         
         
@@ -63,6 +60,27 @@ class NotesListViewController: UIViewController {
     }
     
     
+    @IBAction func addDidTap(_ sender: UIButton) {
+        print("add button tap")
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "addNote":
+            guard let destination = segue.destination as? AddNoteViewController else {
+                return
+            }
+            destination.delegate = self
+            
+        default:
+            break
+        }
+    }
+    
 }
 
 extension NotesListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -88,4 +106,14 @@ extension NotesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+}
+
+extension NotesListViewController: AddNoteDelegate {
+    
+    func didAddNote() {
+        self.fetchchNotes()
+    }
+    
+    
+    
 }
