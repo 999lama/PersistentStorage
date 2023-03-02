@@ -68,7 +68,7 @@ final class CoreDataManager {
             try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType,
                                                               configurationName: nil,
                                                               at: persistentStoreURL,
-                                                              options: options)
+                                                              options: options) 
 
         } catch {
             fatalError("Unable to Add Persistent Store")
