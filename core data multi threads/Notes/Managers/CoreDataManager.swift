@@ -16,13 +16,17 @@ final class CoreDataManager {
 
     // MARK: -
 
-    private(set) lazy var managedObjectContext: NSManagedObjectContext = {
+    private(set) lazy var mainManagedObjectContext: NSManagedObjectContext = {
         // Initialize Managed Object Context
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-
         // Configure Managed Object Context
+        managedObjectContext.parent = self.privateManagedObjectContext
+        return managedObjectContext
+    }()
+    
+    private lazy var privateManagedObjectContext: NSManagedObjectContext = {
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
-
         return managedObjectContext
     }()
 
@@ -105,13 +109,27 @@ final class CoreDataManager {
     // MARK: -
 
     private func saveChanges() {
-        guard managedObjectContext.hasChanges else { return }
-
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print("Unable to Save Managed Object Context")
-            print("\(error), \(error.localizedDescription)")
+     // push change from main object context to private one
+        mainManagedObjectContext.performAndWait { // we want to make sure the changes here is pushed that's why we put performAndWait
+            do {
+                if self.mainManagedObjectContext.hasChanges {
+                    try self.mainManagedObjectContext.save()
+                }
+            } catch {
+                print("Unable to save changes of main managed object context")
+                print("\(error), \(error.localizedDescription)")
+            }
+        }
+        
+        privateManagedObjectContext.perform {
+            do {
+                if self.privateManagedObjectContext.hasChanges {
+                    try self.privateManagedObjectContext.save()
+                }
+            } catch {
+                print("Unable to save changes of private managed object context")
+                print("\(error), \(error.localizedDescription)")
+            }
         }
     }
 

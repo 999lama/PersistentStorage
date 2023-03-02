@@ -41,7 +41,7 @@ class NotesViewController: UIViewController {
 
         // Create Fetched Results Controller
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                                  managedObjectContext: self.coreDataManager.managedObjectContext,
+                                                                  managedObjectContext: self.coreDataManager.mainManagedObjectContext,
                                                                   sectionNameKeyPath: nil,
                                                                   cacheName: nil)
 
@@ -94,7 +94,7 @@ class NotesViewController: UIViewController {
             }
 
             // Configure Destination
-            destination.managedObjectContext = coreDataManager.managedObjectContext
+            destination.managedObjectContext = coreDataManager.mainManagedObjectContext
         case Segue.Note:
             guard let destination = segue.destination as? NoteViewController else {
                 return
@@ -240,7 +240,7 @@ extension NotesViewController: UITableViewDataSource {
         let note = fetchedResultsController.object(at: indexPath)
 
         // Delete Note
-        coreDataManager.managedObjectContext.delete(note)
+        coreDataManager.mainManagedObjectContext.delete(note)
     }
 
 }
